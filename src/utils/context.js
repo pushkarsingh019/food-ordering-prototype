@@ -8,7 +8,7 @@ export const DataProvider = ({children}) => {
     const store = {
         cuisineChoice,
         updateCuisineChoice : (cuisineId) => setCuisineChoice(cuisineId),
-        filterRestrauntsByCuisine : cuisineId => restaurantsData.filter(restraunt => restraunt.cuisine_id === cuisineId),
+        filterRestrauntsByCuisine : cuisineId => cuisineId !== undefined ? restaurantsData.filter(restraunt => restraunt.cuisine_id === cuisineId) : restaurantsData,
         getRestrauntById : restrauntId => restaurantsData.find(restraunt => restraunt.id === Number(restrauntId)),
         addReview : (restrauntId, review) => {
             const restrauntToReview = restaurantsData.find(restraunt => restraunt.id === Number(restrauntId));
