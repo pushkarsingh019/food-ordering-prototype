@@ -4,6 +4,7 @@ import MenuList from "../components/MenuList";
 import ReviewList from "../components/ReviewList";
 import { data } from "../utils/context";
 import AddReviewForm from "../components/AddReviewForm";
+import { getAverageRating } from "../utils/getAverageRating";
 
 const RestrauntScreen = () => {
     const { restrauntId } = useParams();
@@ -31,7 +32,7 @@ const RestrauntScreen = () => {
                 <p className="text-md  mb-1">{restraunt.address}</p>
                 <p className="text-md  mb-1">{restraunt.phone}</p>
                 <p className="text-md  mb-3">
-                    Average Rating : {restraunt.averageRating}{" "}
+                    Average Rating : {getAverageRating(restraunt.id)}{" "}
                     <span
                         onClick={() => setIsOpen(true)}
                         className="text-sky-600 underline hover:cursor-pointer mx-3"
